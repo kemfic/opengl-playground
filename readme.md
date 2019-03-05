@@ -1,6 +1,7 @@
 opengl-playground
 ---
 messing around with pyopengl
+![0](resources/0.png =100x100)
 
 | Project | Example |
 | ------- | :------:|
