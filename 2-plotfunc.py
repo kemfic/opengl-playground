@@ -38,7 +38,7 @@ if __name__ == "__main__":
   glutInit(sys.argv)
   glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB)
   glutInitWindowSize(500, 500)
-  glutInitWindowPosition(1080,100)
+  #glutInitWindowPosition(1080,100)
   glutCreateWindow("Plot Function")
   glutDisplayFunc(plotfunc)
   init()
