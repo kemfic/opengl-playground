@@ -12,15 +12,25 @@ import sys
 
 
 def init():
-  glClearColor(0.0, 0.0, 0.0, 1.0)
-  gluOrtho2D(-1.0, 1.0, -1.0, 1.0)
+  
+  glClearColor(0.0, 0.0, 0.0, 1.0) # (r, g, b, a) tells OpenGL what color we use to clear
+  gluOrtho2D(-1.0, 1.0, -1.0, 1.0) # sets coord system ranges (x_min, x_max, y_min, y_max)
+  # center is 0,0 
 
 def plotpoints():
+  # clears color buffer bit
   glClear(GL_COLOR_BUFFER_BIT)
+  # sets next color
   glColor3f(1.0, 0.0, 0.0)
-
+  
+  # draws points
+  glPointSize(10.0)
   glBegin(GL_POINTS)
   glVertex2f(0.0, 0.0)
+  glVertex2f(0.5, 0.5)
+  glVertex2f(-0.5, 0.5)
+  glVertex2f(0.5, -0.5)
+  glVertex2f(-0.5, -0.5)
 
   glEnd()
   glFlush()
