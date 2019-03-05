@@ -7,12 +7,15 @@ from OpenGL.GLUT import *
 import sys
 
 def draw():
+  glClear(GL_COLOR_BUFFER_BIT)
   glutWireTeapot(0.5)
   glFlush()
 
 if __name__ == "__main__":
   glutInit(sys.argv)
   glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB)
+  glutInitWindowSize(250, 250)
+  glutInitWindowPosition(100,100)
   glutCreateWindow("Hello World")
   glutDisplayFunc(draw)
   glutMainLoop()
