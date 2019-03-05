@@ -7,9 +7,10 @@ from OpenGL.GLUT import *
 import sys
 
 def draw():
-  glClear(GL_COLOR_BUFFER_BIT)
+
+  glClear(GL_COLOR_BUFFER_BIT) # clears GL color buffers
   glutWireTeapot(0.5)
-  glFlush()
+  glFlush() # forces execution of GL commands in finite time
 
 if __name__ == "__main__":
   glutInit(sys.argv)
