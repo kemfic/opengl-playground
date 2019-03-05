@@ -1,6 +1,6 @@
 """
 First PyOpenGL Program
-0.py
+0-teapot.py
 """
 
 
