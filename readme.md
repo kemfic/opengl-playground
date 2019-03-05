@@ -4,5 +4,5 @@ messing around with pyopengl
 
 | Project | Example |
 | ------- | :------:|
-| 0 | ![0](resources/0.png) |
-| 1 | ![1](resources/1.png) |
+| 0 | ![0](resources/0.png | height=100) |
+| 1 | ![1](resources/1.png | height=100) |
