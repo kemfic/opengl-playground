@@ -2,4 +2,7 @@ opengl-playground
 ---
 messing around with pyopengl
 
-![0](resources/0.png)
+| Project | Example |
+| ------- | :------:|
+| 0 | ![0](resources/0.png) |
+| 1 | ![1](resources/1.png) |
