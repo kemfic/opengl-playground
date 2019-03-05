@@ -1,5 +1,5 @@
 """
-Plot 5 points
+Function Plotting
 """
 
 
