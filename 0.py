@@ -10,15 +10,12 @@ from OpenGL.GLUT import *
 import sys
 
 
-import time
 
 def draw():
-  begin = time.time()
   glClear(GL_COLOR_BUFFER_BIT) # clears GL color buffers
   glutWireTeapot(0.5)
   glFlush() # forces execution of GL commands in finite time
-  end = time.time()
-  print(1/(end-begin))
+
 if __name__ == "__main__":
   glutInit(sys.argv)
   glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB)
