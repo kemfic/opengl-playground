@@ -39,7 +39,7 @@ if __name__ == "__main__":
   glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB)
   glutInitWindowSize(500, 500)
   glutInitWindowPosition(1080,100)
-  glutCreateWindow("Plot Points")
+  glutCreateWindow("Plot Function")
   glutDisplayFunc(plotfunc)
   init()
   glutMainLoop()
