@@ -9,3 +9,9 @@ messing around with pyopengl
 | Plotting Functions | <img src="resources/02.png" width="250"> |
 | Plotting Parametric Equations | <img src="resources/3.png" width="250"> |
 | Plotting Polar Equations | <img src="resources/4.png" width="250"> |
+
+
+
+references
+---
+Stan Blank, Python Programming In OpenGL: A Graphical Approach to Programming
