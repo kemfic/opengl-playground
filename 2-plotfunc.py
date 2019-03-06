@@ -9,8 +9,11 @@ from OpenGL.GLUT import *
 import sys
 import numpy as np
 
+dom = np.pi
+interval = 100.0
 
-dom = np.pi #domain
+def f(x):
+  return np.pi*np.tanh(x)
 
 def init():
   
@@ -18,18 +21,23 @@ def init():
   gluOrtho2D(-dom, dom, -dom, dom) # sets coord system ranges (x_min, x_max, y_min, y_max)
   # center is 0,0 
 
-def plotfunc():
-  # clears color buffer bit
-  glClear(GL_COLOR_BUFFER_BIT)
-
-  glColor3f(1.0, 1.0, 1.0)
+def drawaxes():
+  """ draws axis lines """
+  glColor3f(1.0,1.0,1.0)
   glLineWidth(1.0)
+
   glBegin(GL_LINES)
+
   glVertex2f(-dom, 0.0)
   glVertex2f(dom, 0.0)
   glVertex2f(0.0, dom)
   glVertex2f(0.0, -dom)
   glEnd()
+
+def plotfunc():
+  # clears color buffer bit
+  glClear(GL_COLOR_BUFFER_BIT)
+  drawaxes()
   # sets next color
   glColor3f(1.0, 0.0, 1.0)
   
@@ -37,8 +45,8 @@ def plotfunc():
   glPointSize(3.0)
   glBegin(GL_POINTS)
 
-  for x in np.arange(-dom, dom, dom/50.0):
-    y=np.pi*np.tanh(x)
+  for x in np.arange(-dom, dom, dom/interval):
+    y=f(x)
     glVertex2f(x,y)
   
 

@@ -9,8 +9,11 @@ from OpenGL.GLUT import *
 import sys
 import numpy as np
 
+dom = np.pi
+interval = 100.0
 
-dom = np.pi #domain
+def f(x):
+  return np.pi*np.tanh(x)
 
 def init():
   
@@ -19,6 +22,7 @@ def init():
   # center is 0,0 
 
 def drawaxes():
+  """ draws axis lines """
   glColor3f(1.0,1.0,1.0)
   glLineWidth(1.0)
 
@@ -41,8 +45,8 @@ def plotfunc():
   glPointSize(3.0)
   glBegin(GL_POINTS)
 
-  for x in np.arange(-dom, dom, dom/50.0):
-    y=np.pi*np.tanh(x)
+  for x in np.arange(-dom, dom, dom/interval):
+    y=f(x)
     glVertex2f(x,y)
   
 
