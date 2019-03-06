@@ -22,7 +22,7 @@ height = 500
 
 dom = np.pi
 
-iterations = 100000
+iterations = 25000
 
 v = np.array([[0, np.sqrt(3)*dom/2],
                     [-dom, -dom],
@@ -32,7 +32,7 @@ def plotTriangle():
   """ Plots triangle ABC """
   glColor3f(0.2,1.0,0.2)
 
-  glLineWidth(3.0)
+  glLineWidth(2.0)
   glBegin(GL_LINES)
   
   glVertex2f(0, np.sqrt(3)*dom/2)
