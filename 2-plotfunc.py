@@ -13,6 +13,7 @@ dom = np.pi
 interval = 100.0
 
 def f(x):
+  """ your function goes here """
   return np.pi*np.tanh(x)
 
 def init():
