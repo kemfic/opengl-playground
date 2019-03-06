@@ -1,8 +1,5 @@
 """
-Polar Equation Plotting
- - plot a polar equation
- - quit program when "esc" or "q" is pressed
- - maintain aspect ratio of graph when window resized
+Boilerplate Skeleton Code for 2D Plotting
 """
 
 
@@ -21,15 +18,8 @@ interval = 1000.0
 t_min = -np.pi
 t_max = np.pi
 
-def fr(theta):
-  #return 4*np.cos(theta) + 2
-  return 2-2*np.cos(9*theta)*np.sin(9*theta)
-
-def fx(r, theta):
-  return r*np.cos(theta)
-
-def fy(r, theta):
-  return r*np.sin(theta)
+def fx(x):
+  return x
 
 def drawaxes():
   """ draws axis lines """
@@ -55,10 +45,8 @@ def plotfunc():
   glPointSize(3.0)
   glBegin(GL_POINTS)
 
-  for theta in np.arange(t_min, t_max, 1.0/interval):
-    r=fr(theta)
-    x=fx(r, theta)
-    y=fy(r, theta)
+  for x in np.arange(x_min, x_max, 1.0/interval):
+    y=fx(x)
     glVertex2f(x,y)
   
 
@@ -104,7 +92,7 @@ if __name__ == "__main__":
   glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB)
   glutInitWindowSize(500, 500)
   #glutInitWindowPosition(1080,100)
-  glutCreateWindow("Plot Polar Equation")
+  glutCreateWindow("Plot 2D function")
   glutReshapeFunc(reshape)
   glutDisplayFunc(plotfunc)
   glutKeyboardFunc(keyboard)
