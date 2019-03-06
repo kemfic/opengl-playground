@@ -10,7 +10,7 @@ messing around with pyopengl
 | Plotting Parametric Equations | <img src="resources/3.png" width="250"> |
 | Plotting Polar Equations | <img src="resources/4.png" width="250"> |
 | Plotting With Color | <img src="resources/5.png" width="250"> |
-
+| Chaos Game | <img src="resources/6.png" width="250"> |
 
 references
 ---
