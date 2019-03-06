@@ -66,16 +66,15 @@ def plotfunc():
   glBegin(GL_POINTS)
   pt = getRandPointTriangle(v)
   
-  glVertex2f(pt[0], pt[1])
-
+  # generate points
   pts = []
   pts.append(pt)
-  for i in np.random.randint(0,3,size=iterations):
-    pts.append( np.mean([pts[-1], v[i]], axis=0))
-
+  [pts.append(np.mean([pts[-1], v[i]], axis=0)) for i in np.random.randint(0,3,size=iterations)]
+  
+# draw points
   [glVertex2f(pt[0], pt[1]) for pt in pts]
-  glEnd() 
 
+  glEnd() 
   glFlush()
 
 def init():
