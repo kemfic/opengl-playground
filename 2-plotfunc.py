@@ -10,7 +10,7 @@ import sys
 import numpy as np
 
 
-dom = 3.0 #domain
+dom = np.pi #domain
 
 def init():
   
@@ -21,6 +21,15 @@ def init():
 def plotfunc():
   # clears color buffer bit
   glClear(GL_COLOR_BUFFER_BIT)
+
+  glColor3f(1.0, 1.0, 1.0)
+  glLineWidth(1.0)
+  glBegin(GL_LINES)
+  glVertex2f(-dom, 0.0)
+  glVertex2f(dom, 0.0)
+  glVertex2f(0.0, dom)
+  glVertex2f(0.0, -dom)
+  glEnd()
   # sets next color
   glColor3f(1.0, 0.0, 1.0)
   
@@ -31,6 +40,8 @@ def plotfunc():
   for x in np.arange(-dom, dom, dom/50.0):
     y=np.tanh(x)
     glVertex2f(x,y)
+  
+
   glEnd()
   glFlush()
 
