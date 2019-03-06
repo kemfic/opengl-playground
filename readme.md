@@ -4,7 +4,7 @@ messing around with pyopengl
 
 | Project | Example |
 | ------- | :------:|
-| 0 | <img src="resources/0.png" width="250"> |
-| 1 | <img src="resources/1.png" width="250"> |
-| 2 | <img src="resources/02.png" width="250"> |
-| 3 | <img src="resources/3.png" width="250"> |
+| Teapot Example | [<img src="resources/0.png" width="250"> |
+| Plotting Points | [<img src="resources/1.png" width="250"> |
+| Plotting Functions | [<img src="resources/02.png" width="250"> |
+| Plotting Parametric Equations | [<img src="resources/3.png" width="250"> |
