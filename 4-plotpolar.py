@@ -69,9 +69,11 @@ def init():
 
 def reshape(w, h):
   """ preserves aspect ratio of window """
+  
   if h==0:
     h==1
-
+  if w==0:
+    w==1
   # fill entire window
   glViewport(0,0,w,h)
   
