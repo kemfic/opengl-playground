@@ -38,7 +38,7 @@ def plotfunc():
   glBegin(GL_POINTS)
 
   for x in np.arange(-dom, dom, dom/50.0):
-    y=np.tanh(x)
+    y=np.pi*np.tanh(x)
     glVertex2f(x,y)
   
 
