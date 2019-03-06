@@ -12,14 +12,15 @@ import numpy as np
 width = 400
 height = 500
 
-dom = 10.0
-interval = 100.0
+dom = np.pi
+interval = 1000.0
 
-t_min = -1*np.pi
+t_min = -np.pi
 t_max = np.pi
 
 def fr(theta):
-  return 4*np.cos(theta) + 2
+  #return 4*np.cos(theta) + 2
+  return 2-2*np.cos(9*theta)*np.sin(9*theta)
 
 def fx(r, theta):
   return r*np.cos(theta)
