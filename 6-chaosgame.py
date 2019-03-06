@@ -17,14 +17,12 @@ import numpy as np
 import random
 
 
-global pt
-pt = [0,0]
 width = 400
 height = 500
 
 dom = np.pi
 
-iterations = 100000
+iterations = 1000
 
 v = np.array([[0, np.sqrt(3)*dom/2],
                     [-dom, -dom],
