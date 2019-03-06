@@ -1,5 +1,8 @@
 """
 Polar Equation Plotting
+ - plot a polar equation
+ - quit program when "esc" or "q" is pressed
+ - maintain aspect ratio of graph when window resized
 """
 
 
