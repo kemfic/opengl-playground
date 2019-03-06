@@ -1,5 +1,5 @@
 """
-Function Plotting
+Parametic Equation Plotting
 """
 
 
@@ -12,8 +12,14 @@ import numpy as np
 dom = np.pi
 interval = 100.0
 
-def f(x):
-  return np.pi*np.tanh(x)
+t_min = -1*np.pi
+t_max = np.pi
+
+def fx(t):
+  return np.sin(3*t)
+
+def fy(t):
+  return np.cos(5*t)
 
 def init():
   
@@ -45,8 +51,9 @@ def plotfunc():
   glPointSize(3.0)
   glBegin(GL_POINTS)
 
-  for x in np.arange(-dom, dom, dom/interval):
-    y=f(x)
+  for t in np.arange(t_min, t_max, 1.0/interval):
+    x=fx(t)
+    y=fy(t)
     glVertex2f(x,y)
   
 
@@ -58,7 +65,7 @@ if __name__ == "__main__":
   glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB)
   glutInitWindowSize(500, 500)
   #glutInitWindowPosition(1080,100)
-  glutCreateWindow("Plot Function")
+  glutCreateWindow("Plot Parametric Equation")
   glutDisplayFunc(plotfunc)
   init()
   glutMainLoop()
