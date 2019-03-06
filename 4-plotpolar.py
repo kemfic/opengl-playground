@@ -27,7 +27,6 @@ def fx(r, theta):
 def fy(r, theta):
   return r*np.sin(theta)
 
-
 def drawaxes():
   """ draws axis lines """
   glColor3f(1.0,1.0,1.0)
@@ -89,6 +88,11 @@ def reshape(w, h):
   glMatrixMode(GL_MODELVIEW)
   glLoadIdentity()
 
+def keyboard(key, x, y):
+  # quit by pressing 'esc' or 'q'
+  if key == b'q' or key == b'\x1b':
+    sys.exit()
+
 if __name__ == "__main__":
   glutInit(sys.argv)
   glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB)
@@ -97,5 +101,6 @@ if __name__ == "__main__":
   glutCreateWindow("Plot Parametric Equation")
   glutReshapeFunc(reshape)
   glutDisplayFunc(plotfunc)
+  glutKeyboardFunc(keyboard)
   init()
   glutMainLoop()
