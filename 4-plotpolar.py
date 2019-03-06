@@ -9,17 +9,23 @@ from OpenGL.GLUT import *
 import sys
 import numpy as np
 
-dom = np.pi
+width = 400
+height = 500
+
+dom = 10.0
 interval = 100.0
 
 t_min = -1*np.pi
 t_max = np.pi
 
-def fx(t):
-  return np.sin(3*t)
+def fr(theta):
+  return 4*np.cos(theta) + 2
 
-def fy(t):
-  return np.cos(5*t)
+def fx(r, theta):
+  return r*np.cos(theta)
+
+def fy(r, theta):
+  return r*np.sin(theta)
 
 def init():
   
@@ -51,9 +57,10 @@ def plotfunc():
   glPointSize(3.0)
   glBegin(GL_POINTS)
 
-  for t in np.arange(t_min, t_max, 1.0/interval):
-    x=fx(t)
-    y=fy(t)
+  for theta in np.arange(t_min, t_max, 1.0/interval):
+    r=fr(theta)
+    x=fx(r, theta)
+    y=fy(r, theta)
     glVertex2f(x,y)
   
 
