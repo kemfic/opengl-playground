@@ -1,5 +1,5 @@
 """
-Parametic Equation Plotting
+Polar Equation Plotting
 """
 
 
@@ -101,7 +101,7 @@ if __name__ == "__main__":
   glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB)
   glutInitWindowSize(500, 500)
   #glutInitWindowPosition(1080,100)
-  glutCreateWindow("Plot Parametric Equation")
+  glutCreateWindow("Plot Polar Equation")
   glutReshapeFunc(reshape)
   glutDisplayFunc(plotfunc)
   glutKeyboardFunc(keyboard)
