@@ -22,7 +22,7 @@ height = 500
 
 dom = np.pi
 
-iterations = 1000
+iterations = 100000
 
 v = np.array([[0, np.sqrt(3)*dom/2],
                     [-dom, -dom],
