@@ -13,5 +13,5 @@ messing around with pyopengl
 
 references
 ---
-[Python & OpenGL for Scientific Visualization](http://www.labri.fr/perso/nrougier/python-opengl/) \
-Stan Blank, Python Programming In OpenGL: A Graphical Approach to Programming
+ - [Python & OpenGL for Scientific Visualization](http://www.labri.fr/perso/nrougier/python-opengl/) \
+ - Stan Blank, Python Programming In OpenGL: A Graphical Approach to Programming
