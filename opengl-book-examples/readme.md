@@ -1,6 +1,6 @@
 opengl-book-examples
 ---
-some exercises done from Stan Blank's **Python Programming In OpenGL** book
+some exercises from Stan Blank's **Python Programming In OpenGL** book
 
 
 <p float="left">
