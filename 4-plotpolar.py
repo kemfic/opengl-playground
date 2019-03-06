@@ -27,11 +27,6 @@ def fx(r, theta):
 def fy(r, theta):
   return r*np.sin(theta)
 
-def init():
-  
-  glClearColor(0.2, 0.2, 0.2, 1.0) # (r, g, b, a) tells OpenGL what color we use to clear
-  gluOrtho2D(-dom, dom, -dom, dom) # sets coord system ranges (x_min, x_max, y_min, y_max)
-  # center is 0,0 
 
 def drawaxes():
   """ draws axis lines """
@@ -67,12 +62,40 @@ def plotfunc():
   glEnd()
   glFlush()
 
+def init():
+  
+  glClearColor(0.2, 0.2, 0.2, 1.0) # (r, g, b, a) tells OpenGL what color we use to clear
+  gluOrtho2D(-dom, dom, -dom, dom) # sets coord system ranges (x_min, x_max, y_min, y_max)
+  # center is 0,0 
+
+def reshape(w, h):
+  """ preserves aspect ratio of window """
+  if h==0:
+    h==1
+
+  # fill entire window
+  glViewport(0,0,w,h)
+  
+  # set projection matrix
+  glMatrixMode(GL_PROJECTION)
+  glLoadIdentity()
+
+  # set aspect ratio of plot
+  if w <= h:
+    gluOrtho2D(-dom, dom, -dom*h/w, dom*h/w)
+  else:
+    gluOrtho2D(-dom*w/h, dom*w/h, -dom, dom)
+
+  glMatrixMode(GL_MODELVIEW)
+  glLoadIdentity()
+
 if __name__ == "__main__":
   glutInit(sys.argv)
   glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB)
   glutInitWindowSize(500, 500)
   #glutInitWindowPosition(1080,100)
   glutCreateWindow("Plot Parametric Equation")
+  glutReshapeFunc(reshape)
   glutDisplayFunc(plotfunc)
   init()
   glutMainLoop()
