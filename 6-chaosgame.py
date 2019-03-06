@@ -16,20 +16,25 @@ import sys
 import numpy as np
 import random
 
+
+global pt
+pt = [0,0]
 width = 400
 height = 500
 
 dom = np.pi
 
+iterations = 100000
 
-A = [dom/2, np.sqrt(3)*dom/2]
-B = (-dom/2, dom/2)
+v = np.array([[0, np.sqrt(3)*dom/2],
+                    [-dom, -dom],
+                    [dom, -dom]])
 
 def plotTriangle():
   """ Plots triangle ABC """
-  glColor3f(1.0,1.0,1.0)
+  glColor3f(0.2,1.0,0.2)
 
-  glLineWidth(10.0)
+  glLineWidth(3.0)
   glBegin(GL_LINES)
   
   glVertex2f(0, np.sqrt(3)*dom/2)
@@ -40,13 +45,38 @@ def plotTriangle():
   glVertex2f(0, np.sqrt(3)*dom/2)
   glEnd()
 
+def getRandPointTriangle(v):
+  """ 
+  returns a random point that lies within triangle
+  source: https://stackoverflow.com/a/47418580
+  """
+  s, t = sorted([random.random(), random.random()])
+  return (s*v[0,0] + (t -s)*v[1,0] + (1-t)*v[2,0],
+          s*v[0,1] + (t-s)*v[1,1] + (1-t)*v[2,1])
+
+                
+
 def plotfunc():
   # clears color buffer bit
   glClear(GL_COLOR_BUFFER_BIT)
   # sets next color
-  glColor3f(1.0, 0.0, 1.0)
   
-  plotTriangle() 
+  plotTriangle()
+
+  glColor3f(1.0, 0.0, 1.0)
+  glPointSize(1.0)
+  glBegin(GL_POINTS)
+  pt = getRandPointTriangle(v)
+  
+  glVertex2f(pt[0], pt[1])
+
+  pts = []
+  pts.append(pt)
+  for i in np.random.randint(0,3,size=iterations):
+    pts.append( np.mean([pts[-1], v[i]], axis=0))
+
+  [glVertex2f(pt[0], pt[1]) for pt in pts]
+  glEnd() 
 
   glFlush()
 
@@ -89,7 +119,7 @@ if __name__ == "__main__":
   glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB)
   glutInitWindowSize(500, 500)
   #glutInitWindowPosition(1080,100)
-  glutCreateWindow("Plot Polar Equation")
+  glutCreateWindow("Chaos Game")
   glutReshapeFunc(reshape)
   glutDisplayFunc(plotfunc)
   glutKeyboardFunc(keyboard)
