@@ -28,5 +28,20 @@ def on_draw(dt):
   window.clear()
   quad.draw(gl.GL_TRIANGLE_STRIP)
 
+@window.event
+def on_resize(w, h):
+  if w > h:
+    x = (w - h)/2
+    y = 0
+    w = h
+  else:
+    x = 0
+    y = (h-w)/2
+    h = w
+  gl.glViewport(int(x), int(y), int(w), int(h))
+  window.dispatch_event('on_draw', 0.0)
+  window.swap()
+  return True
+
 # run the app
-app.run(framerate=60)
+app.run()
