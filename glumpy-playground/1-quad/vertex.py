@@ -27,7 +27,7 @@ vertex = """
   float s_t = sin(theta);
 
 
-  float x = position.x*c_t - p.y*s_t;
+  float x = position.x*c_t - position.y*s_t;
   float y = position.x*s_t + position.y*c_t;
   
 
