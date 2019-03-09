@@ -28,12 +28,10 @@ vertex = """
 
 
   float x = position.x*cos_theta - position.y*sin_theta;
-  float y = position.x*cos_theta + position.y*sin_theta;
+  float y = position.x*sin_theta + position.y*cos_theta;
   
-  position.x = x;
-  position.y = y;
 
-	gl_Position = vec4(scale*position, 0.0, 1.0);
+	gl_Position = vec4(scale*x, scale*y, 0.0, 1.0);
 	v_color = color;
 	} """
 
