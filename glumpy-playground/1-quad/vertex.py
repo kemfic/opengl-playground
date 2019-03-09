@@ -1,4 +1,5 @@
 vertex = """
+  uniform float theta;
 	uniform float scale;
 	attribute vec2 position;
 	attribute vec4 color;
