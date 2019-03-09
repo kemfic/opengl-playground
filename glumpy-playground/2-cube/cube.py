@@ -31,33 +31,34 @@ cube['u_view'] = view
 cube['u_projection'] = projection
 
 phi, theta = 0,0
-
+test = 0
 @window.event
-def on_draw(dt):	
-	global phi, theta
-	window.clear()
-	cube.draw(gl.GL_TRIANGLES, indices)
-	
-	# rotation animation
-	theta += 0.5 # deg
-	phi += 0.5 # deg
-	
-	model = np.eye(4, dtype=np.float32)
-	glm.rotate(model, theta, 0, 0, 1)
-	glm.rotate(model, phi, 0, 1, 0)
-
-	cube["u_model"] = model
+def on_draw(dt):  
+  global phi, theta, test
+  n = app.clock.tick()
+  window.clear()
+  cube.draw(gl.GL_TRIANGLES, indices)
+  
+  # rotation animation
+  theta += 100*dt # deg
+  phi += 100*dt # deg
+  
+  model = np.eye(4, dtype=np.float32)
+  print(app.clock.get_fps())  
+  glm.rotate(model, theta, 0, 0, 1)
+  glm.rotate(model, phi, 0, 1, 0)
+  cube["u_model"] = model
 
 @window.event
 def on_resize(w, h):
-	ratio = w /float(h)
-	cube["u_projection"] = glm.perspective(45.0, ratio, 2.0, 100.0)
+  ratio = w /float(h)
+  cube["u_projection"] = glm.perspective(45.0, ratio, 2.0, 100.0)
 
 @window.event
 def on_init():
-	gl.glEnable(gl.GL_DEPTH_TEST)
+  gl.glEnable(gl.GL_DEPTH_TEST)
 
 
 
 # run the app
-app.run()
+app.run(framerate=0)
