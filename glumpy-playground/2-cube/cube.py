@@ -61,4 +61,4 @@ def on_init():
 
 
 # run the app
-app.run(framerate=0)
+app.run()
