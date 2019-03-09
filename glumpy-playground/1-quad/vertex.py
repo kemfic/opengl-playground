@@ -23,12 +23,12 @@ vertex = """
 	varying vec4 v_color;
 	void main()
 	{
-  float cos_theta = cos(theta);
-  float sin_theta = sin(theta);
+  float c_t = cos(theta);
+  float s_t = sin(theta);
 
 
-  float x = position.x*cos_theta - position.y*sin_theta;
-  float y = position.x*sin_theta + position.y*cos_theta;
+  float x = position.x*c_t - p.y*s_t;
+  float y = position.x*s_t + position.y*c_t;
   
 
 	gl_Position = vec4(scale*x, scale*y, 0.0, 1.0);
