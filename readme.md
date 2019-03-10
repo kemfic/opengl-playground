@@ -2,6 +2,15 @@ opengl-playground
 ---
 messing around with pyopengl
 
+[glumpy-playground](glumpy-playground)
+---
+<p float="left">
+  <img src="resources/12.png" width="200">
+  <img src="resources/13.png" width="200">
+  <img src="resources/14.png" width="200">
+  <img src="resources/11.png" width="200">
+</p>
+
 [book exercises](opengl-book-examples)
 ---
 <p float="left">
