@@ -26,4 +26,4 @@ references
  - [Texture Blending in GLSL](http://distrustsimplicity.net/articles/texture-blending-in-glsl/)
  - [Python & OpenGL for Scientific Visualization](http://www.labri.fr/perso/nrougier/python-opengl/)
  - Stan Blank, Python Programming In OpenGL: A Graphical Approach to Programming
-
+ - [intro to modern opengl](http://duriansoftware.com/joe/An-intro-to-modern-OpenGL.-Table-of-Contents.html)
