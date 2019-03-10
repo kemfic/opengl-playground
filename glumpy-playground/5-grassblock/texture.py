@@ -110,7 +110,7 @@ def on_draw(dt):
   glm.rotate(model, theta, 1,0,0)
   glm.rotate(model, phi, 0,1,0)
   cube['u_model'] = model
-
+  print(app.clock.get_fps())
 @window.event
 def on_resize(width, height):
   cube['u_projection'] = glm.perspective(45.0, width / float(height), 2.0, 100.0)
@@ -129,4 +129,4 @@ cube['u_model'] = np.eye(4, dtype=np.float32)
 cube['u_view'] = glm.translation(0, 0, -5)
 phi, theta = 40, 30
 
-app.run()
+app.run(framerate=0)
