@@ -1,5 +1,6 @@
 from glumpy import app, gloo, gl, glm, data
 import numpy as np
+import cv2
 
 from vertex import vertex
 from fragment import fragment
@@ -40,10 +41,10 @@ def cube():
                       [1, 0, 0, 1]])
 
   # texture coords
-  t_coords = np.array([ [0,0],
-                        [0,1],
-                        [1,1],
-                        [1,0] ])
+  t_coords = np.array([ [0.5,0.5],
+                        [0.5,1.0],
+                        [1.0,1.0],
+                        [1.0,0.5] ])
   
   #indices corresponding to faces
   f_pos_idx = [0, 1, 2, 3,  0, 3, 4, 5,   0, 5, 6, 1,
@@ -77,16 +78,8 @@ def cube():
 
   return vertices, filled, outline
 
-def checkerboard(grid_num=8, grid_size=32):
-  """ Checkerboard pattern """
-  
-  row_even = grid_num // 2 * [0, 1]
-  row_odd = grid_num // 2 * [1, 0]
-  Z = np.row_stack(grid_num // 2 * (row_even, row_odd)).astype(np.uint8)
-  return 255 * Z.repeat(grid_size, axis=0).repeat(grid_size, axis=1)
-
 window = app.Window(width=500, height=500,
-                    color=(0.10, 0.10, 0.10, 1.00))
+                    color=(0.50, 0.50, 0.50, 1.00))
 @window.event
 def on_draw(dt):
   global phi, theta, duration
@@ -128,7 +121,7 @@ def on_init():
 vertices, indices,outline = cube()
 cube = gloo.Program(vertex, fragment)
 cube.bind(vertices)
-cube['u_texture'] = checkerboard()
+cube['u_texture'] = np.array(cv2.imread('data.png'))/255.0
 cube['u_model'] = np.eye(4, dtype=np.float32)
 cube['u_view'] = glm.translation(0, 0, -5)
 phi, theta = 40, 30
