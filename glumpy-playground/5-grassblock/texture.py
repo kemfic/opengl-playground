@@ -68,8 +68,8 @@ def cube():
   # 6,3,4,7 for grass side
   # 3,0,1,4 for dirt side
   # 4,1,2,5 for dirt bottom
-  f_t_idx = [7,4,5,8, 6,3,4,7, 6,3,4,7,
-             6,3,4,7, 3,0,1,4, 4,1,2,5]
+  f_t_idx = [7,4,5,8, 3,0,1,4, 3,0,1,4,
+             3,0,1,4, 3,0,1,4, 4,1,2,5]
 
   vertices = np.zeros(24, vertex_type)
 
@@ -101,7 +101,7 @@ def on_draw(dt):
   
   #rotate cube
   theta += 0.5 # deg
-  phi += 0.5 # deg
+  phi += 0.6 # deg
   model = np.eye(4, dtype=np.float32)
   glm.rotate(model, theta, 0,0,1)
   glm.rotate(model, phi, 0,1,0)
