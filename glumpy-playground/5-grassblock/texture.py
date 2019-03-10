@@ -105,7 +105,7 @@ def on_draw(dt):
   
   #rotate cube
   theta += 0.5 # deg
-  phi += 0.6 # deg
+  phi += 0.5 # deg
   model = np.eye(4, dtype=np.float32)
   glm.rotate(model, theta, 0,0,1)
   glm.rotate(model, phi, 0,1,0)
