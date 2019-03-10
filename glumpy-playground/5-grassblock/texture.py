@@ -41,10 +41,15 @@ def cube():
                       [1, 0, 0, 1]])
 
   # texture coords
-  t_coords = np.array([ [0.5,0.5],
+  t_coords = np.array([ [0.0,0.0],
+                        [0.0,0.5],
+                        [0.0,1.0],
+                        [0.5,0.0],
+                        [0.5,0.5],
                         [0.5,1.0],
-                        [1.0,1.0],
-                        [1.0,0.5] ])
+                        [1.0,0.0],
+                        [1.0,0.5],
+                        [1.0,1.0] ])
   '''
   t_coords = np.array([ [0.5,0.0],
                         [0.5,0.5],
@@ -57,18 +62,14 @@ def cube():
   
   f_norm_idx = [0, 0, 0, 0,  1, 1, 1, 1,   2, 2, 2, 2,
              3, 3, 3, 3,  4, 4, 4, 4,   5, 5, 5, 5]
-  f_color_idx = [0, 1, 2, 3,  0, 3, 4, 5,   0, 5, 6, 1,
-               1, 6, 7, 2,  7, 4, 3, 2,   4, 7, 6, 5]
 
-
-  f_t_idx = [0, 1, 2, 3,  0, 1, 2, 3,   0, 1, 2, 3,
+  f_t_idx = [7, 4, 5, 8,  6, 3, 4, 7,   6, 3, 4, 7,
              0, 1, 2, 3,  0, 1, 2, 3,   0, 1, 2, 3]
 
   vertices = np.zeros(24, vertex_type)
 
   vertices["a_position"] = v_pos[f_pos_idx]
   vertices["a_texcoord"] = t_coords[f_t_idx]
-  vertices["a_color"] = v_color[f_color_idx]
   vertices["a_normal"] = f_norm[f_norm_idx]
   
   filled = np.resize(np.array([0,1,2,0,2,3], dtype=int_type), 6*2*3)
