@@ -68,13 +68,16 @@ def cube():
   # 6,3,4,7 for grass side
   # 3,0,1,4 for dirt side
   # 4,1,2,5 for dirt bottom
-  f_t_idx = [7,4,5,8, 3,0,1,4, 3,0,1,4,
+  f_t_idx_0 = [3,0,1,4, 3,0,1,4, 3,0,1,4,
              3,0,1,4, 3,0,1,4, 4,1,2,5]
 
+  f_t_idx_1 = [7,4,5,8, 6,3,4,7,  6,3,4,7,
+              6,3,4,7,  6,3,4,7, -1,-1,-1,-1]
   vertices = np.zeros(24, vertex_type)
 
   vertices["a_position"] = v_pos[f_pos_idx]
-  vertices["a_texcoord"] = t_coords[f_t_idx]
+  vertices["a_texcoord0"] = t_coords[f_t_idx_0]
+  vertices["a_texcoord1"] = t_coords[f_t_idx_1]
   vertices["a_normal"] = f_norm[f_norm_idx]
   
   filled = np.resize(np.array([0,1,2,0,2,3], dtype=int_type), 6*2*3)
