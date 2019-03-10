@@ -1,7 +1,7 @@
 from glumpy import app, gloo, gl, glm, data
 import numpy as np
 import cv2
-
+from scipy.ndimage import imread
 from vertex import vertex
 from fragment import fragment
 
@@ -49,7 +49,8 @@ def cube():
                         [0.5,1.0],
                         [1.0,0.0],
                         [1.0,0.5],
-                        [1.0,1.0] ])
+                        [1.0,1.0],
+                        [0.6, 0.4] ]) # last index is for a transparent face
   '''
   t_coords = np.array([ [0.5,0.0],
                         [0.5,0.5],
@@ -62,9 +63,13 @@ def cube():
   
   f_norm_idx = [0, 0, 0, 0,  1, 1, 1, 1,   2, 2, 2, 2,
              3, 3, 3, 3,  4, 4, 4, 4,   5, 5, 5, 5]
-
-  f_t_idx = [7, 4, 5, 8,  6, 3, 4, 7,   6, 3, 4, 7,
-             0, 1, 2, 3,  0, 1, 2, 3,   0, 1, 2, 3]
+  # -1,-1,-1,-1 for transparent face
+  # 7,4,5,8 for grass top
+  # 6,3,4,7 for grass side
+  # 3,0,1,4 for dirt side
+  # 4,1,2,5 for dirt bottom
+  f_t_idx = [7,4,5,8, 6,3,4,7, 6,3,4,7,
+             6,3,4,7, 3,0,1,4, 4,1,2,5]
 
   vertices = np.zeros(24, vertex_type)
 
@@ -115,7 +120,7 @@ def on_init():
 vertices, indices = cube()
 cube = gloo.Program(vertex, fragment)
 cube.bind(vertices)
-cube['u_texture'] = np.array(cv2.imread('data.png', cv2.IMREAD_UNCHANGED))/255.0
+cube['u_texture'] = np.array(imread('data.png', mode='RGBA'))/255.0
 cube['u_model'] = np.eye(4, dtype=np.float32)
 cube['u_view'] = glm.translation(0, 0, -5)
 phi, theta = 40, 30
