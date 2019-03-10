@@ -1,4 +1,5 @@
 from glumpy import app, gloo, gl, glm, data
+
 from glumpy.transforms import Trackball, PanZoom, Position
 import numpy as np
 import cv2
@@ -72,9 +73,14 @@ def cube():
   # 4,1,2,5 for dirt bottom
   f_t_idx_0 = [3,0,1,4, 3,0,1,4, 3,0,1,4,
              3,0,1,4, 3,0,1,4, 4,1,2,5]
+  """
 
+  f_t_idx_1 =[-1,-1,-1,-1, -1,-1,-1,-1, -1,-1,-1,-1,
+              -1,-1,-1,-1, -1,-1,-1,-1, -1,-1,-1,-1]
+  """
   f_t_idx_1 = [7,4,5,8, 6,3,4,7,  6,3,4,7,
               6,3,4,7,  6,3,4,7, -1,-1,-1,-1]
+  
   vertices = np.zeros(24, vertex_type)
 
   vertices["position"] = v_pos[f_pos_idx]
@@ -90,6 +96,8 @@ def cube():
 
   return vertices, filled
 
+
+
 window = app.Window(width=500, height=500,
                     color=(0.20, 0.20, 0.20, 1.00))
 @window.event
@@ -98,7 +106,8 @@ def on_draw(dt):
 
   window.clear()
 
-  #gl.glDisable(gl.GL_BLEND)
+  gl.glDisable(gl.GL_BLEND)
+  gl.glEnable(gl.GL_LINE_SMOOTH)
   gl.glEnable(gl.GL_DEPTH_TEST)
   gl.glEnable(gl.GL_POLYGON_OFFSET_FILL)
   #cube["u_color"] = 1,1,1,1
@@ -126,7 +135,7 @@ def on_init():
 vertices, indices = cube()
 cube = gloo.Program(vertex, fragment)
 cube.bind(vertices)
-cube['transform'] = Trackball(Position("position"), znear=0.1, zfar=100.0, distance=50, aspect=1)
+cube['transform'] = Trackball(Position("position"), znear=0.1, zfar=100.0, distance=10, aspect=1)
 cube['u_texture'] = np.array(imread('data.png', mode='RGBA'))/255.0
 cube['u_model'] = np.eye(4, dtype=np.float32)
 cube['u_view'] = glm.translation(0, 0, -5)
