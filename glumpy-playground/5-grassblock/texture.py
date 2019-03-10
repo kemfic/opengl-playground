@@ -7,7 +7,8 @@ from fragment import fragment
 
 def cube():
   vertex_type = [ ("a_position", np.float32, 3),
-                  ("a_texcoord", np.float32, 2),
+                  ("a_texcoord0", np.float32, 2),
+                  ("a_texcoord1", np.float32, 2),
                   ("a_normal", np.float32, 3),
                   ("a_color", np.float32, 4)]
   int_type = np.uint32
